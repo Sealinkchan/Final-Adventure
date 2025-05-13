@@ -17,7 +17,10 @@ def generate_lvl_1(player=Player()):
                 pass
                  
         case 1:
-            print("You go south. The door is a struggle to pull open. It grinds against the stone floor and you're surprised the wood doesn't fall apart under your hands. The room is swallowed in darkness.")
+            print("""
+                You go south. The door is a struggle to pull open. It grinds against the stone floor and you're surprised the wood doesn't fall apart under your hands.
+                The room is swallowed in darkness.
+                """)
             if player.light == True:
                 print(f"Current Room: {room1.name}\n\
                 {room1.description}")
@@ -101,7 +104,14 @@ def generate_lvl_1(player=Player()):
                 pass
             
         case 6:
-            print("\n\tThe Little Story of a Big Merc\n\t How are you supposed to do this with no armor or weapons? Maybe they stayed in the circle you first stepped through? Alas, they haven't. The mage is apologizing profusely and is no longer able to even hold the circle. You failed before you even started! You're reputation takes a blow, your purse takes a blow, and your self-esteem takes a blow.")
+            print("""
+                    The Little Story of a Big Merc
+                  
+                How are you supposed to do this with no armor or weapons? Maybe they stayed in the circle you first stepped through?
+                Alas, they haven't. The mage is apologizing profusely and is no longer able to even hold the circle. You failed before you even started!
+                
+                You're reputation takes a blow, your purse takes a blow, and your self-esteem takes a blow.
+                """)
         case _:
             print("Out of Bounds")
 
@@ -191,11 +201,17 @@ def summon_light(player=Player()):
     print("Do you want to summon your light?")
     lightChoice = input("> ")
     if lightChoice == "yes":
-        print("A cool blue-gold light appears in your outstretched palm. It grows brighter, till the room is illuminated with its gentle glow. You gently lob it up, and it hangs above you, keeping east over your head as you walk.\n\
-        \tWill you give your light ball companion a name?")
+        print("""A cool blue-gold light appears in your outstretched palm. It grows brighter, till the room is illuminated with its gentle glow.
+            You gently lob it up, and it hangs above you, keeping over your head as you walk.
+            
+            Will you give your light ball companion a name?
+            """)
         nameChoice = input("> ")
         if nameChoice == "yes":
-            print("It's a little weird you want to name a small ball of light, but this is always the way you've done things. It's your steadfast partner. The only one you can trust.")
+            print("""
+                It's a little weird you want to name a small ball of light, but this is always the way you've done things.
+                It's your steadfast partner. The only one you can trust.
+                """)
             name = input("What is the ball of light's name?\t")
             print(f"{name} is a great choice!")
             player.light = True
@@ -205,7 +221,11 @@ def summon_light(player=Player()):
         else:
             print("Hmmm... do you want to give the ball of light a name or what? Yes or No?")
     elif lightChoice == "no":
-        print("Odd, considering you don't have darkvision, but you do enjoy a challenge every now and then. You stumble across the floor, tripping on uneven stone tiles. You crash into...something...and would probably get a splinter if you hadn't managed to keep your gloves through that weird teleport. You grope until you find a door you don't think is the one you came through. Will you go through the door or try to go back the way you came? So, north or south?")    
+        print("""
+            Odd, considering you don't have darkvision, but you do enjoy a challenge every now and then.
+            You stumble across the floor, tripping on uneven stone tiles. You crash into...something...and would probably get a splinter if you hadn't managed to keep your gloves through that weird teleport.
+            You grope until you find a door you don't think is the one you came through. Will you go through the door or try to go back the way you came? So, north or south?
+            """)    
     else:
         print("Was that a yes or a no?")
 
@@ -289,7 +309,10 @@ def room_seventeen(player=Player()):
         description_parts.append="Beast Lord Professor, Teleportation Professor"
     
     if player.visited_rooms <= 8:
-        print("You walk into the stairwell and the eerie noise rises up from the floor below. After dealing with the unnatural silence of the Academy so far, it's unnerving to hear the raucous noise below.")
+        print("""
+              You walk into the stairwell and the eerie noise rises up from the floor below.
+              After dealing with the unnatural silence of the Academy so far, it's unnerving to hear the raucous noise below.
+              """)
     else:
         print(description_parts+description_part2)
 
@@ -338,7 +361,12 @@ def determine_ending(player=Player()):
 
 def character_creation(player=Player()):
               
-    print('You are a mercenary that\'s been hired to go the back way into a magic Academy to save the Professors and Students that are still trapped on the second floor of the building. You\'re good at your job and are looking forward to those sweet gold coins weighing down your pockets, so you agree to go in the "back way". As you walk towards the person in charge who your handler told you to contact, they turn and look at you, asking,\n\t"You\'re here to help, right?"')
+    print("""
+        You are a mercenary that's been hired to go the back way into a magic Academy to save the Professors and Students that are still trapped on the second floor of the building.
+        You're good at your job and are looking forward to those sweet gold coins weighing down your pockets, so you agree to go in the "back way".
+        As you walk towards the person in charge who your handler told you to contact, they turn and look at you, asking,
+        'You're here to help, right?'
+        """)
     
     answerPlayer=input("> ").lower().split()[0]
     
@@ -375,15 +403,20 @@ def main():
     search (searches current room)
     light (Turn on light)
     return (spell to take you out of the Academy)
-    quit (to quit the game...quitter)\n\
-    You might want to grab a pen and paper to help draw out the map.\n\
+    quit (to quit the game...quitter)
+    You might want to grab a pen and paper to help draw out the map.
     Press Enter to continue...
     """)   
     input()
     
     character_creation(player)
-    print("You step towards the nervous mage who is standing in front of a teleportation circle. It's glowing a weird lightish red color, which is not something you've seen before. You cautiously step into the circle and the world blinks for a moment, the sound of broken glass filling your ears, and the scent of rotten oranges in your nose. The world blinks back and you find yourself in your clothes. Somehow, that mage has managed to destroy your weapons and armor. You step from the circle, the lightish red glow giving the dank, musky air an eerie atmosphere. Your boots barely make noise on the stone floor with a thick layer of dirt and grim to cushion your steps. In the gloom, you can see a door that leads deeper.\n\
-        Will you search the room? Go south? Go north?\n\t")
+    print("""
+        You step towards the nervous mage who is standing in front of a teleportation circle.
+        It's glowing a weird lightish red color, which is not something you've seen before. You cautiously step into the circle and the world blinks for a moment, the sound of broken glass filling your ears, and the scent of rotten oranges in your nose. The world blinks back and you find yourself in your clothes. Somehow, that mage has managed to destroy your weapons and armor.
+        You step from the circle, the lightish red glow giving the dank, musky air an eerie atmosphere. Your boots barely make noise on the stone floor with a thick layer of dirt and grim to cushion your steps.
+        In the gloom, you can see a door to the South of you.
+        Will you search the room? Go south? Go north?
+        """)
       
     player.action = input("> ")
     player_action(player)
