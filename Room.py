@@ -50,8 +50,7 @@ room6 = Room(index=6,name="The Little Story of a Big Merc",
     connections={"down": 0},
     end_game=True)
 
-def generate_lvl_1(room=Room(),player=Player()):
-    msg = " "
+def generate_lvl_1(room=Room,player=Player):
     match room.index:
         case 0:
             print("Current Room: {room.name}\n\n\
@@ -187,13 +186,13 @@ room17 = Room(index=17, name="Stairwell 2-6",
                 search_results="There's nothing really of note, except a picture of a landscape. Very classy.",
                 connections={"up": 7}, items=[])
 room22 = Room(name="Did Your Job and Went Home With No Drama",
-              description="You got all the children and professors out of the Academy. You did decide against facing off with the Imperials, though. Your reputation takes no hit as a whole, but the Professors that wanted to take on the Imperials don't think much of you. The Professors still took a 'scorched earth' approach, just leveing the building since there was no on the inside to take on the Imperials. You get a tidy sum.",
-              end_game=True)
+                description="You got all the children and professors out of the Academy. You did decide against facing off with the Imperials, though. Your reputation takes no hit as a whole, but the Professors that wanted to take on the Imperials don't think much of you. The Professors still took a 'scorched earth' approach, just leveing the building since there was no on the inside to take on the Imperials. You get a tidy sum.",
+                end_game=True)
 room25 = Room(name="How Long Have You Worked as a Merc, Anyway.",
-              description="You got some children and professors out of the Academy. You did decide against facing off with the Imperials, though. Your reputation takes a small hit and the Professors that wanted to take on the Imperials don't think much of you. Not to mention the Professors and the parents of the children you didn't bother to save. The Professors come up with a plan together while you get paid a portion of what you were offered, as you didn't finish the job completely. You're ushered off the grounds and will see a dip in work for a while.",
-              end_game=True)
+                description="You got some children and professors out of the Academy. You did decide against facing off with the Imperials, though. Your reputation takes a small hit and the Professors that wanted to take on the Imperials don't think much of you. Not to mention the Professors and the parents of the children you didn't bother to save. The Professors come up with a plan together while you get paid a portion of what you were offered, as you didn't finish the job completely. You're ushered off the grounds and will see a dip in work for a while.",
+                end_game=True)
 
-def generate_lvl_2(room=Room(),player=Player()):
+def generate_lvl_2(room=Room, player=Player):
    
     match room.index:
 
@@ -265,7 +264,7 @@ room24 = Room(name="A Big Man with an Old Soul",
 
 #generate_lvl_3 Function
 
-def generate_lvl_3(room=Room()):
+def generate_lvl_3(room=Room):
     match room.index:
         case 18:
             return room18

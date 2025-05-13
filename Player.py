@@ -75,7 +75,7 @@ class Player:
                 self.equipped[slot] = None
                 self.inventory.append(item)
                 print(f"'{item}' unequipped from the '{slot}' slot.")
-    def summon_light(self,room=Room()):
+    def summon_light(self,room=Room):
         lightChoice = input("> ").lower().strip()
         if (lightChoice == "yes"):
             self.light = True
