@@ -1,273 +1,403 @@
-import os
 import random
-#Imported defined functions
-from Item import *
-from Player import *
+from Endings import *
 from Room import *
+from Player import *
+from Item import *
+END_GAME=True
+ALL_ROOMS={"room0":room0,"room1":room1,"room2":room2,"room3":room3,"room4":room4,"room5":room5,"room6":room6,"room7":room7,"room8":room8,"room9":room9,"room10":room10,"room11":room11,"room12":room12,"room13":room13,"room14":room14,"room15":room15,"room16":room16,"room17":room17,"room18":room18,"room19":room19,"room20":room20,"room21":room21,"room22":room22,"room23":room23,"room24":room24,"room25":room25}
 
-def clear():
-    os.system("cls" if os.name == "nt" else "clear")
+#Generate levels
+def generate_lvl_1(player=Player()):
+    match player.current_room:
+        case 0:
+            if player.action == "search":
+                print(f"Current Room: {room0.name}\n\
+                      {room0.description}")
+            else:
+                pass
+                 
+        case 1:
+            print("You go south. The door is a struggle to pull open. It grinds against the stone floor and you're surprised the wood doesn't fall apart under your hands. The room is swallowed in darkness.")
+            if player.light == True:
+                print(f"Current Room: {room1.name}\n\
+                {room1.description}")
+                if player.action == "search":
+                    print(f"{room1.search_results}")
+                else:
+                    pass
+            elif player.light == False:
+                print(f"{room1.d_description}")  
+                if player.action == "search":
+                    print(f"{room1.d_search_results}")
+                else:
+                    pass
+            else:
+                pass
 
-#Mobs and Boss
-class Enemy:
-    def __init__(self, monster):
-        self.name = ''
-        self.monster = monster
-        self.stats = {"health": 10, "attack": 1, "defense": 0}
-        
-    def assign_mob(self, monster): #added self.
-        match monster:
-            case 1:
-                self.name = "Imperial Gunner"
-                self.monster = monster
-                self.stats = {"health": 45, "attack": 5, "defense": 1}
-            case 2:
-                self.name = "Imperial Automaton"
-                self.monster = monster
-                self.stats = {"health": 60, "attack": 8, "defense": 5}
+        case 2:
+            if player.light == True:
+                print(f"Current Room: {room2.name}\n\
+                {room2.description}")
+                if player.action == "search":
+                    print(f"{room2.search_results}")
+                else:
+                    pass
+            elif player.light == False:
+                print(f"{room2.d_description}")
+                if player.action == "search":
+                    print(f"{room2.d_search_results}")
+                else:
+                    pass
+            else:
+                pass
+        case 3:
+            if player.light == True:
+                print(f"Current Room: {room3.name}\n\
+                {room3.description}")      
+                if player.action == "search" and player.light == True:
+                    print(f"{room3.search_results}")          
+                #dark_room(player,room)
+                else:
+                    pass
+
+            elif player.light == False:
+                print(f"{room3.d_description}")
+                if player.action == "search" and player.light == False:
+                    print(f"{room3.d_search_results}")
+                else:
+                    pass
+            else:
+                pass
+
+        case 4:
+            if player.light == True:
+                print(f"Current Room: {room4.name}\n\
+                {room4.description}")
+
+                #dark_room(player,room)
+                if player.action == "search" and player.light == True:
+                    print(f"{room4.search_results}")
+                else:
+                    pass
+
+            elif player.light == False:
+                print(f"{room4.d_description}")
+                if player.action == "search" and player.light == False:
+                    print(f"{room4.d_search_results}")
+                else:
+                    pass
+            else:
+                pass                
+        case 5:
+            if player.light == True:             
+                print(f"Current Room: {room5.name}\n\
+                {room5.description}")
+                player.light = False
+                if player.action == "search" and player.light == True:
+                    print(f"{room5.search_results}")
+                else:
+                    pass
+            else:
+                pass
             
-    def assign_boss(self, boss): #added self.
-        match boss:
-            case 1:
-                self.name = "Imperial Centurion"
-                self.monster = boss
-                self.stats = {"health": 75, "attack": 10, "defense": 4}
+        case 6:
+            print("\n\tThe Little Story of a Big Merc\n\t How are you supposed to do this with no armor or weapons? Maybe they stayed in the circle you first stepped through? Alas, they haven't. The mage is apologizing profusely and is no longer able to even hold the circle. You failed before you even started! You're reputation takes a blow, your purse takes a blow, and your self-esteem takes a blow.")
+        case _:
+            print("Out of Bounds")
 
-#Directions
+def generate_lvl_2(player=Player()):
+    match player.current_room:
+        case 7:
+            print(f"Current Room: {room7.name}\n\
+                \t{room7.description}")
+            if player.action == "search":
+                print(f"{room7.search_results}")
+        case 8:
+            print(f"Current Room: {room8.name}\n\
+                \t{room8.description}")
+            if player.action == "search":
+                print(f"{room8.search_results}")
+        case 9:
+            print(f"Current Room: {room9.name}\n\
+                \t{room9.description}")
+            if player.action == "search":
+                print(f"{room9.search_results}")
+        case 10:
+            print(f"Current Room: {room10.name}\n\
+                \t{room10.description}")
+            if player.action == "search":
+                print(f"{room10.search_results}")
+        case 11:
+            print(f"Current Room: {room11.name}\n\
+                \t{room11.description}")
+            if player.action == "search":
+                print(f"{room11.search_results}")
+        case 12:
+            print(f"Current Room: {room12.name}\n\
+                \t{room12.description}")
+            if player.action == "search":
+                print(f"{room12.search_results}")
+        case 13:
+            print(f"Current Room: {room13.name}\n\
+                \t{room13.description}")
+            if player.action == "search":
+                print(f"{room13.search_results}")
+        case 14:
+            print(f"Current Room: {room14.name}\n\
+                \t{room14.description}")
+            if player.action == "search":
+                print(f"{room14.search_results}")
+        case 15:
+            print(f"Current Room: {room15.name}\n\
+                \t{room15.description}")
+            if player.action == "search":
+                print(f"{room15.search_results}")
+        case 16:
+            print(f"Current Room: {room16.name}\n\
+                \t{room16.description}")
+            if player.action == "search":
+                print(f"{room16.search_results}")
+        case 17:
+            print(f"Current Room: {room17.name}\n\
+                \t{room17.description}")
+            if player.action == "search":
+                print(f"{room17.search_results}")
+        case _:
+            print("Out of Bounds")
 
-def process_direction():
-    direction=input("> ").lower().strip()
-    if direction in ["up","down","left","right"]:
-        return direction
+def generate_lvl_3(player=Player()):
+    match player.current_room:
+        case 18:
+            print(f"Current Room: {room18.name}\n\
+                \t{room18.description}")
+            if player.action == "search":
+                print(f"{room18.search_results}")
+        case 19:
+            print(f"Current Room: {room19.name}\n\
+                \t{room19.description}")
+            if player.action == "search":     
+                print(f"{room19.search_results}") 
+        case 20:
+            print(f"Current Room: {room20.name}")
+            room_seventeen(player)
+            if player.action == "search":
+                print(f"{room20.search_results}")                      
+        case _:
+            print("Out of Bounds")
+
+
+#Summon Light
+def summon_light(player=Player()):
+    print("Do you want to summon your light?")
+    lightChoice = input("> ")
+    if lightChoice == "yes":
+        print("A cool blue-gold light appears in your outstretched palm. It grows brighter, till the room is illuminated with its gentle glow. You gently lob it up, and it hangs above you, keeping east over your head as you walk.\n\
+        \tWill you give your light ball companion a name?")
+        nameChoice = input("> ")
+        if nameChoice == "yes":
+            print("It's a little weird you want to name a small ball of light, but this is always the way you've done things. It's your steadfast partner. The only one you can trust.")
+            name = input("What is the ball of light's name?\t")
+            print(f"{name} is a great choice!")
+            player.light = True
+        elif nameChoice == "no":
+            print("Really? Name a ball of light? Psh. You're a strong, silent mercenary.")
+            player.light = True
+        else:
+            print("Hmmm... do you want to give the ball of light a name or what? Yes or No?")
+    elif lightChoice == "no":
+        print("Odd, considering you don't have darkvision, but you do enjoy a challenge every now and then. You stumble across the floor, tripping on uneven stone tiles. You crash into...something...and would probably get a splinter if you hadn't managed to keep your gloves through that weird teleport. You grope until you find a door you don't think is the one you came through. Will you go through the door or try to go back the way you came? So, north or south?")    
     else:
-        print("An interesting suggestion, but you aren't capable of going that 'direction'.")
+        print("Was that a yes or a no?")
+
+#Actions
+def player_action(player=Player()):
+    
+    match player.action:
+        case "go": #Go
+            new_room_name = f"room" + str(player.current_room)
+            room = ALL_ROOMS[new_room_name]
+            room_choice(room,player)
+            if player.current_room <= 6:
+                generate_lvl_1(player)
+            elif player.current_room > 6 and player.current_room <= 17:
+                if player.current_room == 7:
+                    print("\n\tDirections from the Hallway are now - 'door1', 'door2', 'door3', etc... 'door11'. \n")
+                else:
+                    pass
+                generate_lvl_2(player)
+            elif player.current_room > 17 and player.current_room <= 20:
+                generate_lvl_3(player)
+        case "search": #Search
+            if player.current_room <= 6:
+                generate_lvl_1(player)
+            elif player.current_room > 6 and player.current_room <= 17:
+                generate_lvl_2(player)
+            elif player.current_room > 17 and player.current_room <= 20:
+                generate_lvl_3(player)
+        case "light":
+            summon_light(player)
+        case "return":
+            kids_check(player)
+            imperial_loss(player)
+            determine_ending(player)
+        case "quit":
+            quit()
+        case _:
+            print("What were you going to do? Search, go, or light?")
 
 #Room Choice
 
 def room_choice(room=Room(),player=Player()):
 
-    #Handles room movement based on player input and room connections in the direction the player wants to move (e.g., "up", "down", "right", "left").
+    #Handles room movement based on player input and room connections in the direction the player wants to move (e.g., "north", "south", "east", "west").
+    print("Which direction do you want to go?\t")
+    direction=input("> ")
 
-    current_room=room.index
-    direction=input("> ").lower().split()
-
-    if direction == "up": #check for direction availble
-        if room.connections["up"]:
-            #generate next room 
-            #tell player about room
-            next_room_index=room.connections["up"]
-            next_room=room.description
-        else: #rebuke player            
-            print("Seems there's no accessible door in that direction.")
-    elif direction =="down":
-            #check for direction availble
-        if room.connections["down"]:
-            #generate next room 
-            #tell player about room
-            next_room_index=room.connections["down"]
-            next_room=room.description
-        else:
-            #rebuke player
-            print("Seems there's no accessible door in that direction.")
-    elif direction =="left":
-            #check for direction availble
-        if room.connections["left"]:
-            #generate next room 
-            #tell player about room
-            next_room_index=room.connections["left"]
-            next_room=room.description
-        else:
-            #rebuke player
-            print("Seems there's no accessible door in that direction.")
-    elif direction=="right":
-            #check for direction availble
-        if room.connections["right"]:
-            #generate next room 
-            #tell player about room
-            next_room_index=room.connections["right"]
-            next_room=room.description
-        else:
-            #rebuke player
-            print("Seems there's no accessible door in that direction.")
+    if direction in room.connections:
+        next_room_index=room.connections[direction]
+        player.current_room=next_room_index
     else:
-        print("An interesting suggestion, but you aren't capable of going that 'direction'.")
-    
-    if current_room:
-        next_room_index=room.connections
-
-        if next_room_index:
-          next_room=room(next_room_index)
-          if next_room:
-            player.current_room = next_room_index
-            print(f"You are now in {next_room["name"]}.")
-            print(next_room["description"])
-            return next_room_index
-          else:
-            print("Seems there's no accessible door in that direction.")
-            return room.index # player stays in same room.
-        else:
-            print("Seems there's no accessible door in that direction.")
-            return room.index # player stays in same room.
-        
-    #Random Room Generation if Player is in total darkness and is stupid and doesn't turn on light
-    elif player.light == False and room.light == False:
-        if random.randint(1, 101) < 75:
-            possible_destinations = [1, 2, 3, 4]
-            next_room_index = current_room["connections"][random_direction]                 
-            random_direction = random.choice(possible_destinations)
-            print("The darkness is all encompassing. Did you even move to another room? Are you still in the same place? Maybe you need a light.")  
-        else:
-            print("The darkness is all encompassing. Did you even move to another room? Are you still in the same place? Maybe you need a light.") 
-    else:
-        print("The darkness is all encompassing. Did you even move to another room? Are you still in the same place? Maybe you need a light.") 
-        return current_room # player stays in same room.
-
-#Room Search
-def search_room(room=Room(),player=Player()):
-    current_room=player.current_room
-    if current_room:
-        print(player.current_room["search_results"])
-    else:
-        print("You can't do that, {player.name}.")
-
-#Checking for Room Items
-
-def check_room_items(room=Room(),item=Item()):
-
-    if room.items:
-        for item.name in room.items:
-            print("item.name")
-        else:
-            pass
-    else: 
-        None
-
-#Picking up Items
-
-def get_item(player=Player(),room=Room(),item=Item()):
-  item = check_room_items(room, item)
-  if item:
-    if item not in player.inventory:
-      player.inventory.append(item)
-      room.items.remove(item)
-      return f"You picked up {"item.name"}!"
-    else:
-      return f"{"item.name"} is already on your person."
-  else:
-    return f"Can't find {"item.name"}."
-
-#Game Endings     
-def determine_ending(player=Player()):
-
-    if player.saved_all_children == True and player.fought_imperials == True:
-        return 24  # "A Big Man with an Old Soul"
-    elif player.saved_all_children == True and player.fought_imperials == False:
-        return 22  # "Did Your Job and Went Home With No Drama"
-    elif player.saved_all_children == False and player.fought_imperials == True:
-        return 21  # "Sing-handedly Beat All Their Men"
-    elif player.saved_all_children == False and player.fought_imperials == True and player.num_rooms_explored > 1:
-        return 23 # "Dog. Just Dog."
-    elif player.saved_all_children==False and player.fought_imperials==False and player.num_rooms_explored > 1:
-        return 25 # "How Long Have You Worked as a Merc, Anyway."
-
-if __name__ == "__main__":
-
-    def character_creation(player=Player()):
+        print("There doesn't appear to be a door you can reach that way.")
               
-        print('You are a mercenary that\'s been hired to go the back way into a magic Academy to save the Professors and Students that are still trapped on the second floor of the building. You\'re good at your job and are looking forward to those sweet gold coins weighing down your pockets, so you agree to go in the "back way". As you walk towards the person in charge who your handler told you to contact, they turn and look at you, asking, "You\'re here to help, right?"')
-        
-        answerPlayer=input("> ").lower().split()
-        
-        if answerPlayer=="yes":
-            print("Oh thank goodness! We've been waiting for you!\t")
-        elif answerPlayer=="no":
-            print("Disappointing. We're waiting for someone. Can you please move on?")
-            quit()
+#Random Room Generation if Player is in total darkness and is stupid and doesn't turn on light   
+
+def dark_room(player=Player(),room=Room()):
+    if player.light == False and room.light == False:
+        if random.randint(1, 101) < 75:
+            possible_destinations = [1,2,3,4]      
+            random_direction = random.choice(possible_destinations)
+            player.current_room = random_direction
         else:
-            print("Sorry, I missed that. Was that a yes or no?\t")
-            return
+            pass 
+    else:
+        print("The darkness is all encompassing. Maybe you need a light.") 
+  
+#Room17
 
-        player.name=input("What's your name, Mercenary?\t")
-        print(f"Well met, {player.name}!")
+def room_seventeen(player=Player()):
+    description_parts=[]
+    description_part2=" are waiting for you in the stairwell, quiet despite the raucous noise rising from the lower level. You all share a grim nod before looking down the stairs, gathering yourselves to face the fight below."
+    if 9 in player.visited_rooms:
+        description_parts.append="Artifice Professor"
+    elif 10 in player.visited_rooms:
+        description_parts.append="Herbology Professor, Scrying Professor"
+    elif 12 in player.visited_rooms:
+        description_parts.append="Bard Professor"
+    elif 13 in player.visited_rooms:
+        description_parts.append="Alchemy Professor, Trapmaster Professor, Spell Scribe Professor"
+    elif 15 in player.visited_rooms:
+        description_parts.append="Beast Lord Professor, Teleportation Professor"
+    
+    if player.visited_rooms <= 8:
+        print("You walk into the stairwell and the eerie noise rises up from the floor below. After dealing with the unnatural silence of the Academy so far, it's unnerving to hear the raucous noise below.")
+    else:
+        print(description_parts+description_part2)
 
-        job=input(f"What's your job, {player.name}? Swordlord, Pugilist, or Rogue?\t").lower().strip()
-        player.set_job(job)
-        if player.job=="swordlord":
-            print(f"Well met, Swordlord {player.name}! We're pleased you've agreed to help.")
-        elif player.job=="pugilist":
-            print(f"Well met, Pugilist {player.name}! We're pleased you've agreed to help.")
-        elif player.job=="rogue":
-            print(f"Well met, Rogue {player.name}! We're pleased you've agreed to help.")
-        else:
-            print("Sorry, I didn't catch that. Swordlord, Pugilist, or Rogue?\t")
+#Saved Kids
+def kids_check(player=Player()):
+    counter=0
+    if 9 in player.visited_rooms:
+        counter+=1
+    elif 10 in player.visited_rooms:
+        counter+=1
+    elif 12 in player.visited_rooms:
+        counter+=1
+    elif 13 in player.visited_rooms:
+        counter+=1
+    elif 14 in player.visited_rooms:
+        counter+=1
+    elif 15 in player.visited_rooms:
+        counter+=1
+    else:
+        print("Tracker Error: Visited Rooms")
+    if counter == 6:
+        player.saved_all_children=True
+    else:
+        print("Counter invalid")
 
-def main(player = Player()):
+#Imperial Check
+def imperial_loss(player=Player()):
+    if 19 in player.visited_rooms:
+        player.fought_imperials=True
+    else:
+        player.fought_imperials=False
+
+#Game Endings
+     
+def determine_ending(player=Player()):
+    if player.saved_all_children == True and player.fought_imperials == True:
+        endings(24)  # "A Big Man with an Old Soul"
+    elif player.saved_all_children == True and player.fought_imperials == False:
+        endings(22)  # "Did Your Job and Went Home With No Drama"
+    elif player.saved_all_children == False and player.fought_imperials == True:
+        endings(21)  # "Single-handedly Beat All Their Men"
+    elif player.saved_all_children == False and player.fought_imperials == True and player.num_rooms_explored >= 8 and player.num_rooms_explored <= 18:
+        endings(23) # "Dog. Just Dog."
+    elif player.saved_all_children==False and player.fought_imperials==False and player.num_rooms_explored > 8 and player.num_rooms_explored <= 12:
+        endings(25) # "How Long Have You Worked as a Merc, Anyway."
+
+def character_creation(player=Player()):
+              
+    print('You are a mercenary that\'s been hired to go the back way into a magic Academy to save the Professors and Students that are still trapped on the second floor of the building. You\'re good at your job and are looking forward to those sweet gold coins weighing down your pockets, so you agree to go in the "back way". As you walk towards the person in charge who your handler told you to contact, they turn and look at you, asking,\n\t"You\'re here to help, right?"')
+    
+    answerPlayer=input("> ").lower().split()[0]
+    
+    if answerPlayer == "yes":
+        print("Oh thank goodness! We've been waiting for you!\t")
+    elif answerPlayer == "no":
+        print("Disappointing. We're waiting for someone. Could you please move on?")
+        quit()
+    else:
+        print("Sorry, I missed that. Was that a yes or no?\t")
+
+    player.name=input("What's your name, Mercenary?\t")
+    print(f"Well met, {player.name}!")
+
+    job=input(f"What's your job, {player.name}? Swordlord, Pugilist, or Rogue?\t").lower()
+    player.set_job(job)
+    if player.job =="swordlord":
+        print(f"Well met, Swordlord {player.name}! We're pleased you've agreed to help.\n\n")
+    elif player.job=="pugilist":
+        print(f"Well met, Pugilist {player.name}! We're pleased you've agreed to help.\n\n")
+    elif player.job=="rogue":
+        print(f"Well met, Rogue {player.name}! We're pleased you've agreed to help.\n\n")
+    else:
+        print("Sorry, I didn't catch that. Swordlord, Pugilist, or Rogue?\t")
+
+def main():
+    player = Player()
 #Instructions
     print("""Welcome to Academy Chaos
-    Save the professors and children in the academy!
+    Save the professors and children stuck in the academy!
 
     Moves:
-    {direction} (Up, Down, Left, Right, circle)
-    get {item} (adds nearby item to inventory)
+    go (available directions: north, south, west, east)
     search (searches current room)
-    use {item} (uses items)
-    equip {item} (Equips items)
     light (Turn on light)
+    return (spell to take you out of the Academy)
+    quit (to quit the game...quitter)\n\
+    You might want to grab a pen and paper to help draw out the map.\n\
     Press Enter to continue...
     """)   
     input()
-
     
-    character_creation(player=Player())
-    player.inventory=[]
-    player.saved_all_children=False
-    player.fought_imperials=False
-    player.num_rooms_explored=1
-    start_game()
+    character_creation(player)
+    print("You step towards the nervous mage who is standing in front of a teleportation circle. It's glowing a weird lightish red color, which is not something you've seen before. You cautiously step into the circle and the world blinks for a moment, the sound of broken glass filling your ears, and the scent of rotten oranges in your nose. The world blinks back and you find yourself in your clothes. Somehow, that mage has managed to destroy your weapons and armor. You step from the circle, the lightish red glow giving the dank, musky air an eerie atmosphere. Your boots barely make noise on the stone floor with a thick layer of dirt and grim to cushion your steps. In the gloom, you can see a door that leads deeper.\n\
+        Will you search the room? Go south? Go north?\n\t")
+      
+    player.action = input("> ")
+    player_action(player)
 
-def start_game(player=Player(),room=Room(),item=Item()):
+    start_game(player)
 
-    while True:  # Single game loop
+#Game Loop
+def start_game(player=Player()):
 
-        current_room=room[player.current_room]
-        print(current_room["description"])
-        player.inventory=[]
-
-        action = input("> ").lower().strip()
-        if action == "light":
-            player.light = True
-            print(current_room["room.name"])
-            print(current_room["room.description"])
-
-        elif action == "Get":  # Item pick up logic.
-            if current_room:
-                item_found = False
-                for room_items in current_room["items"]:
-                    item.name = room_items
-                    if room.items == room_items:
-                        if room_items not in player.inventory:
-                            player.inventory.append(room_items)
-                            msg = f"You picked up {room_items[item.name]}!"
-                            room.items.remove(room_items)
-                        else:
-                            msg = f"{room_items[item.name]} is already on your person."
-                        item_found = True
-                        break
-                if not item_found:
-                    msg=(f"Can't find {item}.")
-            else:
-                msg = f"There are no items to get here."
-            print(msg)
-        elif action == "search":
-            print(player.current_room["search_results"])
-            break
-        
-        elif action == "Exit":
-            break
-
-        else:
-            msg = f"You can't do that, {player.name}."
-            print(msg)
+    while END_GAME:  # Single game loop
+        print("Will you search the room? Go forth? Do you need a light? Or are you ready to use return spell?\n\t")
+        player.action = input("> ")
+        player_action(player)
+    #Game Ending 
 
 if __name__ == "__main__":
     main()

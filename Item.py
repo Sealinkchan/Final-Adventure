@@ -97,3 +97,19 @@ unknown_potion=Item(
     equipable=False,
     health_bonus=-20,
     mana_bonus=-20,)
+
+#Items
+
+leather_armor = Item(name="Leather Armor Set of the Forgotten", description="Leather Armor Set that has somehow survived in the basement under the Academy for an untold number of years.")
+potion = Item(name="Unknown Potion", description="Of dubious age, original effect, and viscous. You're not really gonna drink this are you?")
+celestial_wine = Item(name="Celestial Wine", description="A little taste of where Angels dwell. Too bad you'll be too trashed to enjoy past the first sip.")
+blood_wine = Item(name="Blood Wine", description="Feeling a little iron deficient? This is not the way to fix that.")
+gerren_sword = Item(name="Gerren's Enchanted Long Sword", description="Gerren worked really hard to enchant this sword! It's a plain looking sword, but its edges are sharp!")
+lottie_gloves = Item(name="Lottie's Enchanted Pugilist Gloves", description="Lottie worked really hard on these! They're heavier than they look...what did Lottie put in these?!")
+rylie_dagger = Item(name="Rylie's Enchanted Dagger Pair", description="Rylie worked really hard on these! They both have colored hilts wrought of wood with vines around the hilt. The color choice is a bit off...one is red and the other is green...")
+poultice = Item(name="Health Poultice", description="This poutice will heal for 10 HP. Pretty good for a student!") 
+tar_bomb = Item(name="Tar Bomb", description="Eats through attack and defense!")
+erosion_bomb = Item(name="Erosion Bomb", description="Eats health! Even metal foes are not safe!")
+armor_potion = Item(name="Armor Potion", description="Ups Defense by 3 for 10 minutes!")
+attack_potion = Item(name="Attack Potion", description="Ups Attack Power by 3 for 10 minutes!")
+whirlwind_scroll = Item(name="Whirlwind Scroll", description="Need to clear the air? This is the best way to do it! You can use spellscrolls even where there is anti-magic fog in the air.")
