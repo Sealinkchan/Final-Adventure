@@ -1,8 +1,9 @@
 import os
 import random
-import Item.py
-import Player.py
-import Room.py
+#Imported defined functions
+from Item import *
+from Player import *
+from Room import *
 
 def clear():
     os.system("cls" if os.name == "nt" else "clear")

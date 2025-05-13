@@ -1,6 +1,7 @@
 import random
-import Item.py
-import Player.py
+#Imported defined functions
+from Item import *
+from Player import *
 
 #Map
 

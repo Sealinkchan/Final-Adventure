@@ -1,5 +1,6 @@
-import Room.py
-import Item.py
+#Imported defined functions
+from Item import *
+from Room import *
 
 #Player Classes
 
